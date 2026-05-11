@@ -1,0 +1,27 @@
+name: "app-nagios-nrpe"
+version: "1.0.0"
+slug: folder
+description: >-
+  "Long description"
+arch:
+  - amd64
+  - aarch64
+url: "https://github.com/petrivirkkula/hassio-app-nagios-nrpe"
+ports:
+  5666/tcp: 5666
+ports_description:
+  5666/tcp: Nagios NRPE default port
+host_network: true
+apparmor: true
+map:
+  - type: share
+    read_only: False
+  - type: ssl
+  - type: homeassistant_config
+    read_only: False
+    path: /custom/config/path
+image: ghcr.io/petrivirkkula/hassio-app-nagios-nrpe
+options:
+  allowed_hosts: "127.0.0.1"
+schema:
+  allowed_hosts: str?

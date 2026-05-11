@@ -1,0 +1,6 @@
+network:
+  5666/tcp: Nagios NRPE default port
+configuration:
+  allowed_hosts:
+    name: Allowed remote hosts
+    description: Comma separated list of IP addresses (or IP/CIDR) for allowed remote hosts (e.g. Nagios server). Defaults to 127.0.0.1

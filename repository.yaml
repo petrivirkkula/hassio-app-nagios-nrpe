@@ -1,0 +1,4 @@
+# https://developers.home-assistant.io/docs/add-ons/repository#repository-configuration
+name: "HA Nagios NRPE Server App"
+url: 'https://github.com/petrivirkkula/hassio-app-nagios-nrpe'
+maintainer: "Petri Virkkula <petri@petrivirkkula.com>"

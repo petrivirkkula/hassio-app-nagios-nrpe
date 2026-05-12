@@ -24,6 +24,6 @@ LABEL \
     org.opencontainers.image.source="https://github.com/petrivirkkula/assio-app-nagios-nrpe" \
     org.opencontainers.image.licenses="GNU Public License v3.0"
 
-ENTRYPOINT []
+#ENTRYPOINT []
 RUN chmod a+x /run.sh
 CMD [ "/run.sh" ]

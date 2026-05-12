@@ -11,12 +11,27 @@ COPY rootfs /
 
 # Install requirements for app
 RUN \
+    if [ -z "${TARGETARCH}" ]; then \
+        echo "TARGETARCH is not set, please use Docker BuildKit for the build." && exit 1; \
+    fi \
+    && case "${TARGETARCH}" in \
+        amd64) ;; \
+        arm64) ;; \
+        *) echo "Unsupported TARGETARCH: ${TARGETARCH}" && exit 1 ;; \
+    esac \
   apk add --no-cache --update tar procps-ng python3 nrpe nagios-plugins-all monitoring-plugins \
   && rc-update add nrpe default \
   && ARCH="${BUILD_ARCH}" \
   && if [ "${BUILD_ARCH}" = "aarch64" ]; then ARCH="arm64"; fi
-# Copy data for app
+
 RUN chmod -R 755 /usr/lib/nagios/plugins/
+
+LABEL \
+    org.opencontainers.image.title="Home Assistant App: Nagios NRPE" \
+    org.opencontainers.image.description="Nagios NRPE Server for monitoring Home Assistant" \
+    org.opencontainers.image.source="https://github.com/petrivirkkula/assio-app-nagios-nrpe" \
+    org.opencontainers.image.licenses="GNU Public License v3.0"
+
 ENTRYPOINT []
 RUN chmod a+x /run.sh
 CMD [ "/run.sh" ]

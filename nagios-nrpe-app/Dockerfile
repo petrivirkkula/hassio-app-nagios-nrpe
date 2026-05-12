@@ -5,7 +5,9 @@ LABEL \
   io.hass.type="app" \
   io.hass.arch="aarch64|amd64"
 
- COPY rootfs /
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+COPY rootfs /
 
 # Install requirements for app
 RUN \
@@ -16,6 +18,5 @@ RUN \
 # Copy data for app
 RUN chmod -R 755 /usr/lib/nagios/plugins/
 ENTRYPOINT []
-COPY run.sh /
 RUN chmod a+x /run.sh
 CMD [ "/run.sh" ]

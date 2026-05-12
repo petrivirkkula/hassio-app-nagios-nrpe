@@ -4,7 +4,7 @@ bashio::log.info "Starting nrpe server..."
 mkdir -p /var/run/nagios /etc/nagios/certs /usr/lib/nagios/extra
 [ -e "/var/run/nagios/nrpe.pid" ] && rm "/var/run/nagios/nrpe.pid"
 
-CoNFIG_PATH=/data/options.json
+#CONFIG_PATH=/data/options.json
 ALLOWED_HOSTS=$(bashio::config 'allowed_hosts')
 bashio::log.info "allowed_hosts=${ALLOWED_HOSTS}"
 

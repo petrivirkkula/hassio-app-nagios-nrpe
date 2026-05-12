@@ -12,14 +12,7 @@ ports:
 ports_description:
   5666/tcp: Nagios NRPE default port
 host_network: true
-apparmor: true
-map:
-  - type: share
-    read_only: False
-  - type: ssl
-  - type: homeassistant_config
-    read_only: False
-    path: /custom/config/path
+#apparmor: true
 image: ghcr.io/petrivirkkula/hassio-app-nagios-nrpe
 options:
   allowed_hosts: "127.0.0.1"

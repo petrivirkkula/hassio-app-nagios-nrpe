@@ -2,7 +2,7 @@ name: "app-nagios-nrpe"
 version: "1.0.0"
 slug: folder
 description: >-
-  "Long description"
+  "Home Assistant App for NRPE Server for Nafios Plugins"
 arch:
   - amd64
   - aarch64
